@@ -1,9 +1,12 @@
 console.log("Hola mundo desde app");
-console.log(window.location.href);
+const BASE_URL=window.location.href
+
 document.getElementById('img-show').style.display = 'none';
 if(navigator.serviceWorker){
-    console.log("Bien");
-    navigator.serviceWorker.register('/sw.js')
+    // console.log("Bien");
+    
+    BASE_URL.startsWith('https:')?navigator.serviceWorker.register('https://jhoelfloresluna.github.io/PWA-SERVICE-WORKER/'):navigator.serviceWorker.register('/sw.js')
+    
 }else{
     console.log("No funciona");
 }
