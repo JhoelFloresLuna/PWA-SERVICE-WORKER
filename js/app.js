@@ -5,7 +5,7 @@ document.getElementById('img-show').style.display = 'none';
 if(navigator.serviceWorker){
     // console.log("Bien");
     
-    BASE_URL.startsWith('https:')?navigator.serviceWorker.register('https://jhoelfloresluna.github.io/sw.js'):navigator.serviceWorker.register('/sw.js')
+    BASE_URL.startsWith('https:')?navigator.serviceWorker.register('https://jhoelfloresluna.github.io/PWA-SERVICE-WORKER/sw.js'):navigator.serviceWorker.register('/sw.js')
     
 }else{
     console.log("No funciona");
