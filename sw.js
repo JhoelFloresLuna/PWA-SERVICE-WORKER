@@ -29,7 +29,7 @@ self.addEventListener('fetch', (event) => {
 
     if(event.request.url.includes('https://')){
         console.log('entro al fetch');
-        const response = fetch(event.request.url)
+        //const response = fetch(event.request.url)
         //console.log('es una imagen');
         
         //event.respondWith(new Response(`{text:'hecho'}`, {headers:{'Content-Type':'text/json'}}))
