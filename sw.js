@@ -1,5 +1,8 @@
 // console.log("SW WORKING too:)");
-const URL= 'https://yesno.wtf/api'
+const URL = self.location.href
+let ruta=''
+URL.startsWith('https:')?ruta='/FLGJ-PWA-U2-P1/':ruta="/"
+
 self.addEventListener('install',(event) => {
     console.log('SW instalado');
     
@@ -22,36 +25,25 @@ self.addEventListener('fetch', (event) => {
     //console.log(event.request.url);
     //console.log(event);event
     if(event.request.url.includes('.png')){
-        const response = fetch('./img/3.png')
+        const response = fetch(`${ruta}img/gato.png`)
         //console.log('es una imagen');
         event.respondWith(response)
     }
 
-    if(event.request.url.includes('https://')){
-        console.log('entro al fetch');
-        //const response = fetch(event.request.url)
-        //console.log('es una imagen');
-        
-        //event.respondWith(new Response(`{text:'hecho'}`, {headers:{'Content-Type':'text/json'}}))
-       
-        /* const {answer, image} = await lanzarFetch(event.request.url)
-        console.log(event.request.url);
-        console.log(image);
-        event.respondWith(image) */
-        /* console.log(image);
-         */
+  
+
+    
+    if(event.request.url.includes('style.css')){
+        let response = new Response(`
+        body{
+            background-color:#5499a1 !important;
+            color: #d0dadb;
+        },`,{
+            headers: {
+                'Content-Type': 'text/css'
+            }
+        })
+        event.respondWith(response)
     }
-    
-
-
-    
-    /* if(event.request.url.includes('style.css')){
-        const newResponse = new Response(`{body{
-            background-color: rgb(58, 156, 124) !important;
-            color:rgb(15, 143, 143);
-        }}`, {headers:{'Content-Type':'text/css'}})
-        event.respondWith(newResponse)
-
-    } */
     
 })
